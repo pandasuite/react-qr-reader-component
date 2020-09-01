@@ -3,96 +3,38 @@
     "main": "",
   
     "system": {
-      "localization": false,
-      "actions": [
-        {
-          "id": "toMarker",
-          "name": "Change Image",
-          "locale_name": {
-            "fr_FR": "Change Image"
-          },
-          "params": [
-            { "id": "useless", "name": "Useless", "locale_name": {"fr_FR": "Inutile"}, "type": "Boolean" }
-          ]
-        }
-      ],
-      "events": [
-        {
-          "id": "triggerMarker",
-          "name": "Image",
-          "locale_name": {
-            "fr_FR": "Image"
-          }
-        }
-      ],
-      "markers": [
-        {
-          "params": [
-            { "id": "src", "name": "Source", "locale_name": {"fr_FR": "Source"}, "type": "String" }
-          ]
-        }
-      ]
+      "localization": false
     },
 
     "properties": [
       {
-        "id": "searchTerm",
-        "name": "Search Term",
+        "id": "facingMode",
+        "name": "Facing mode",
         "locale_name": {
-          "fr_FR": "Terme de recherche"
+          "fr_FR": "Mode d'orientation"
         },
-        "type": "String",
-        "value": "panda"
+        "type": "Dropdown",
+        "items": [
+          {
+            "id": "user",
+            "name": "User"
+          },
+          {
+            "id": "environment",
+            "name": "Environment"
+          }
+        ],
+        "value": "environment"
       }
     ],
   
     "events": [
       {
-        "id": "imageChanged",
-        "name": "Image Changed",
+        "id": "qrDetected",
+        "name": "QR Code detected",
         "locale_name": {
-          "fr_FR": "Image Changée"
+          "fr_FR": "QR Code détecté"
         }
-      }
-    ],
-  
-    "actions": [
-      {
-        "id": "changeColor",
-        "name": "Change Color",
-        "params": [
-          {
-            "id": "backgroundColor",
-            "name": "Background Color",
-            "locale_name": {
-              "fr_FR": "Couleur de fond"
-            },
-            "type": "String",
-            "value": "#FFFFFF"
-          }
-        ]
-      }
-    ],
-
-    "synchronization": [
-      {
-        "id": "synchroImages",
-        "name": "Synchronize images",
-        "locale_name": {
-          "fr_FR": "Synchroniser images"
-        }
-      }
-    ],
-  
-    "resources": [
-      {
-        "id": "my_image.png",
-        "name": "Example image",
-        "locale_name": {
-          "fr_FR": "Image exemple"
-        },
-        "type": "Image",
-        "localization": false
       }
     ]
 }
