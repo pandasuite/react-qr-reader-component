@@ -18,10 +18,16 @@
           {
             "id": "user",
             "name": "User"
+            "locale_name": {
+              "fr_FR": "Utilisateur"
+            }              
           },
           {
             "id": "environment",
             "name": "Environment"
+            "locale_name": {
+              "fr_FR": "Environnement"
+            }              
           }
         ],
         "value": "environment"
