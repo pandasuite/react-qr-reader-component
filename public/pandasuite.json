@@ -40,6 +40,15 @@
         "name": "QR Code detected",
         "locale_name": {
           "fr_FR": "QR Code détecté"
+        },
+        "queryable": {
+          "value": "https://pandasuite.com",
+          "__desc_value": {
+            "name": "QR Code value",
+            "locale_name": {
+              "fr_FR": "Valeur du QR Code"
+            }
+          }
         }
       }
     ]

@@ -28,7 +28,10 @@ function App() {
           PandaBridge.send(PandaBridge.TRIGGER_MARKER, m.id);
         }
       });
-      PandaBridge.send('qrDetected', [{ value: data }]);
+      const queryable = {
+        value: data,
+      };
+      PandaBridge.send('qrDetected', [queryable]);
     }
   };
 
