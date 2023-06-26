@@ -17,14 +17,14 @@
         "items": [
           {
             "id": "user",
-            "name": "User"
+            "name": "User",
             "locale_name": {
               "fr_FR": "Utilisateur"
             }              
           },
           {
             "id": "environment",
-            "name": "Environment"
+            "name": "Environment",
             "locale_name": {
               "fr_FR": "Environnement"
             }              
