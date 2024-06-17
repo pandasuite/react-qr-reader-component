@@ -1,56 +1,64 @@
 {
-    "version": "2.0.0",
-    "main": "",
-  
-    "system": {
-      "localization": false
-    },
+  "version": "2.0.0",
+  "main": "",
 
-    "properties": [
-      {
-        "id": "facingMode",
-        "name": "Facing mode",
-        "locale_name": {
-          "fr_FR": "Mode d'orientation"
-        },
-        "type": "Dropdown",
-        "items": [
-          {
-            "id": "user",
-            "name": "User",
-            "locale_name": {
-              "fr_FR": "Utilisateur"
-            }              
-          },
-          {
-            "id": "environment",
-            "name": "Environment",
-            "locale_name": {
-              "fr_FR": "Environnement"
-            }              
+  "system": {
+    "localization": false
+  },
+
+  "properties": [
+    {
+      "id": "facingMode",
+      "name": "Facing mode",
+      "locale_name": {
+        "fr_FR": "Mode d'orientation"
+      },
+      "type": "Dropdown",
+      "items": [
+        {
+          "id": "user",
+          "name": "User",
+          "locale_name": {
+            "fr_FR": "Utilisateur"
           }
-        ],
-        "value": "environment"
-      }
-    ],
-  
-    "events": [
-      {
-        "id": "qrDetected",
-        "name": "QR Code detected",
-        "locale_name": {
-          "fr_FR": "QR Code détecté"
         },
-        "queryable": {
-          "value": "https://pandasuite.com",
-          "__desc_value": {
-            "name": "QR Code value",
-            "locale_name": {
-              "fr_FR": "Valeur du QR Code"
-            }
+        {
+          "id": "environment",
+          "name": "Environment",
+          "locale_name": {
+            "fr_FR": "Environnement"
+          }
+        }
+      ],
+      "value": "environment"
+    }
+  ],
+
+  "events": [
+    {
+      "id": "qrDetected",
+      "name": "QR Code detected",
+      "locale_name": {
+        "fr_FR": "QR Code détecté"
+      },
+      "queryable": {
+        "value": "https://pandasuite.com",
+        "__desc_value": {
+          "name": "QR Code value",
+          "locale_name": {
+            "fr_FR": "Valeur du QR Code"
           }
         }
       }
-    ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "reset",
+      "name": "Reset",
+      "locale_name": {
+        "fr_FR": "Réinitialiser"
+      }
+    }
+  ]
 }
-  

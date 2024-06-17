@@ -1,46 +1,55 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import './App.css';
 
 import QrReader from 'react-qr-reader';
 import { usePandaBridge } from 'pandasuite-bridge-react';
 import PandaBridge from 'pandasuite-bridge';
+import throttle from 'lodash/throttle';
+
+const SCAN_DELAY = 300;
 
 function App() {
-  const {
-    properties,
-    markers,
-  } = usePandaBridge(
-    {
-      markers: {
-        getSnapshotDataHook: () => ({ id: 'https://pandasuite.com' }),
+  const [lastScannedData, setLastScannedData] = useState(null);
+  const { properties, markers } = usePandaBridge({
+    markers: {
+      getSnapshotDataHook: () => ({ id: 'https://pandasuite.com' }),
+    },
+    actions: {
+      reset: () => {
+        setLastScannedData(null);
       },
     },
+  });
+
+  const handleScan = useMemo(
+    () =>
+      throttle((data) => {
+        if (data && data !== lastScannedData) {
+          (markers || []).forEach((m) => {
+            if (m.id === data) {
+              PandaBridge.send(PandaBridge.TRIGGER_MARKER, m.id);
+            }
+          });
+          const queryable = {
+            value: data,
+          };
+          PandaBridge.send('qrDetected', [queryable]);
+          setLastScannedData(data);
+        }
+      }, SCAN_DELAY),
+    [markers, lastScannedData]
   );
 
   if (!properties) {
     return null;
   }
 
-  const handleScan = (data) => {
-    if (data) {
-      (markers || []).forEach((m) => {
-        if (m.id === data) {
-          PandaBridge.send(PandaBridge.TRIGGER_MARKER, m.id);
-        }
-      });
-      const queryable = {
-        value: data,
-      };
-      PandaBridge.send('qrDetected', [queryable]);
-    }
-  };
-
   return (
     <div className="App">
       <QrReader
-        delay={300}
+        delay={SCAN_DELAY}
         onScan={handleScan}
-        style={{ width: '100%', heigth: '100%' }}
+        style={{ width: '100%', height: '100%' }}
         className="Reader"
         showViewFinder={false}
         facingMode={properties.facingMode}
