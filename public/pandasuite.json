@@ -1,11 +1,17 @@
 {
+  "meta": {
+    "stype": "qr-reader",
+    "componentURL": "https://github.com/pandasuite/react-qr-reader-component/",
+    "description": "Camera-based QR code and barcode scanner. Decodes content in real time and exposes the scanned value as queryable data for triggering actions.",
+    "locale_description": {
+      "fr_FR": "Scanner de codes QR et codes-barres basé sur la caméra. Décode le contenu en temps réel et expose la valeur scannée comme données interrogeables pour déclencher des actions."
+    }
+  },
   "version": "2.0.0",
   "main": "",
-
   "system": {
     "localization": false
   },
-
   "properties": [
     {
       "id": "facingMode",
@@ -30,10 +36,13 @@
           }
         }
       ],
-      "value": "environment"
+      "value": "environment",
+      "description": "Camera facing direction: user (front) or environment (back).",
+      "locale_description": {
+        "fr_FR": "Direction de la caméra : utilisateur (avant) ou environnement (arrière)."
+      }
     }
   ],
-
   "events": [
     {
       "id": "qrDetected",
@@ -47,8 +56,16 @@
           "name": "QR Code value",
           "locale_name": {
             "fr_FR": "Valeur du QR Code"
+          },
+          "description": "Decoded content of the scanned QR code or barcode.",
+          "locale_description": {
+            "fr_FR": "Contenu décodé du code QR ou code-barres scanné."
           }
         }
+      },
+      "description": "Fires when a QR code or barcode is detected by the camera.",
+      "locale_description": {
+        "fr_FR": "Se déclenche quand un code QR ou code-barres est détecté par la caméra."
       }
     }
   ],
@@ -58,6 +75,10 @@
       "name": "Reset",
       "locale_name": {
         "fr_FR": "Réinitialiser"
+      },
+      "description": "Reset the scanner to scan a new QR code.",
+      "locale_description": {
+        "fr_FR": "Réinitialiser le scanner pour scanner un nouveau code QR."
       }
     }
   ]
